@@ -15,6 +15,8 @@
 		2BBC2E301FB14EED001280E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC2E2F1FB14EED001280E6 /* main.m */; };
 		2BBC2E3A1FB14EED001280E6 /* GYScrollCardViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC2E391FB14EED001280E6 /* GYScrollCardViewTests.m */; };
 		2BBC2E451FB14EED001280E6 /* GYScrollCardViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC2E441FB14EED001280E6 /* GYScrollCardViewUITests.m */; };
+		86CB4C1BE4890EAFA11961A0 /* libPods-GYScrollCardViewTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A29DA06D477D3ED860BD2686 /* libPods-GYScrollCardViewTests.a */; };
+		C57745AE363F72D95FF0C7D6 /* libPods-GYScrollCardView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B43D94CDAE4084D44860603 /* libPods-GYScrollCardView.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,12 @@
 		2BBC2E401FB14EED001280E6 /* GYScrollCardViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GYScrollCardViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BBC2E441FB14EED001280E6 /* GYScrollCardViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYScrollCardViewUITests.m; sourceTree = "<group>"; };
 		2BBC2E461FB14EED001280E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B43D94CDAE4084D44860603 /* libPods-GYScrollCardView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GYScrollCardView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EBAE6F204B3524EF074971D /* Pods-GYScrollCardView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GYScrollCardView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GYScrollCardView/Pods-GYScrollCardView.debug.xcconfig"; sourceTree = "<group>"; };
+		A29DA06D477D3ED860BD2686 /* libPods-GYScrollCardViewTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GYScrollCardViewTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB3FE460989999D88FC503B4 /* Pods-GYScrollCardView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GYScrollCardView.release.xcconfig"; path = "Pods/Target Support Files/Pods-GYScrollCardView/Pods-GYScrollCardView.release.xcconfig"; sourceTree = "<group>"; };
+		C034C497B567CE4E8607F021 /* Pods-GYScrollCardViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GYScrollCardViewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GYScrollCardViewTests/Pods-GYScrollCardViewTests.release.xcconfig"; sourceTree = "<group>"; };
+		DCBA5A6C1DAF7AE2AB55FEE8 /* Pods-GYScrollCardViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GYScrollCardViewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GYScrollCardViewTests/Pods-GYScrollCardViewTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C57745AE363F72D95FF0C7D6 /* libPods-GYScrollCardView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86CB4C1BE4890EAFA11961A0 /* libPods-GYScrollCardViewTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +88,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D1E6786E1D9C2381CAF3167 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B43D94CDAE4084D44860603 /* libPods-GYScrollCardView.a */,
+				A29DA06D477D3ED860BD2686 /* libPods-GYScrollCardViewTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2BBC2E141FB14EED001280E6 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +104,8 @@
 				2BBC2E381FB14EED001280E6 /* GYScrollCardViewTests */,
 				2BBC2E431FB14EED001280E6 /* GYScrollCardViewUITests */,
 				2BBC2E1E1FB14EED001280E6 /* Products */,
+				9D4D7A49EA51B65CCCA40C08 /* Pods */,
+				1D1E6786E1D9C2381CAF3167 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,6 +153,17 @@
 			path = GYScrollCardViewUITests;
 			sourceTree = "<group>";
 		};
+		9D4D7A49EA51B65CCCA40C08 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9EBAE6F204B3524EF074971D /* Pods-GYScrollCardView.debug.xcconfig */,
+				AB3FE460989999D88FC503B4 /* Pods-GYScrollCardView.release.xcconfig */,
+				DCBA5A6C1DAF7AE2AB55FEE8 /* Pods-GYScrollCardViewTests.debug.xcconfig */,
+				C034C497B567CE4E8607F021 /* Pods-GYScrollCardViewTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,9 +171,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2BBC2E491FB14EED001280E6 /* Build configuration list for PBXNativeTarget "GYScrollCardView" */;
 			buildPhases = (
+				BCEB6D4AC04FA8EF9BDDC4DB /* [CP] Check Pods Manifest.lock */,
 				2BBC2E191FB14EED001280E6 /* Sources */,
 				2BBC2E1A1FB14EED001280E6 /* Frameworks */,
 				2BBC2E1B1FB14EED001280E6 /* Resources */,
+				3D3AED721B8BD8B3ABC77475 /* [CP] Embed Pods Frameworks */,
+				155021C60B0AD875202D940C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -156,9 +191,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2BBC2E4C1FB14EED001280E6 /* Build configuration list for PBXNativeTarget "GYScrollCardViewTests" */;
 			buildPhases = (
+				B0B2B04ED0DB7575E546DBD0 /* [CP] Check Pods Manifest.lock */,
 				2BBC2E311FB14EED001280E6 /* Sources */,
 				2BBC2E321FB14EED001280E6 /* Frameworks */,
 				2BBC2E331FB14EED001280E6 /* Resources */,
+				3412A0D99E382D12C35CBED0 /* [CP] Embed Pods Frameworks */,
+				DBB58121B0F6D4089060CF2F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -259,6 +297,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		155021C60B0AD875202D940C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GYScrollCardView/Pods-GYScrollCardView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3412A0D99E382D12C35CBED0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GYScrollCardViewTests/Pods-GYScrollCardViewTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3D3AED721B8BD8B3ABC77475 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GYScrollCardView/Pods-GYScrollCardView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0B2B04ED0DB7575E546DBD0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BCEB6D4AC04FA8EF9BDDC4DB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DBB58121B0F6D4089060CF2F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GYScrollCardViewTests/Pods-GYScrollCardViewTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2BBC2E191FB14EED001280E6 /* Sources */ = {
@@ -428,6 +559,7 @@
 		};
 		2BBC2E4A1FB14EED001280E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EBAE6F204B3524EF074971D /* Pods-GYScrollCardView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -441,6 +573,7 @@
 		};
 		2BBC2E4B1FB14EED001280E6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB3FE460989999D88FC503B4 /* Pods-GYScrollCardView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -454,6 +587,7 @@
 		};
 		2BBC2E4D1FB14EED001280E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCBA5A6C1DAF7AE2AB55FEE8 /* Pods-GYScrollCardViewTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -468,6 +602,7 @@
 		};
 		2BBC2E4E1FB14EED001280E6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C034C497B567CE4E8607F021 /* Pods-GYScrollCardViewTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
