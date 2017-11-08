@@ -9,9 +9,9 @@
 #import "GYCardViewFlowLayout.h"
 
 @implementation GYCardViewFlowLayout
-//-(CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity
-//{
-//    NSLog(@"___%.2f___%.2f",proposedContentOffset.x,proposedContentOffset.y);
-//    return proposedContentOffset;
-//}
+- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity
+{
+    
+    return proposedContentOffset;
+}
 @end

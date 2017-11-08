@@ -11,7 +11,7 @@
 
 @protocol GYScrollCardViewDelegate <NSObject>
 @optional
--(void)scrollCard_scrollViewDidScroll:(UIScrollView *)scrollView index:(NSInteger)index isLeft:(BOOL)isleft;
+-(void)scrollCard_scrollToSection:(NSInteger)section;
 
 @end
 
@@ -19,5 +19,5 @@
 @property (nonatomic ,strong) UICollectionView *firstCollectionView;
 @property (nonatomic ,strong) NSMutableArray *array;
 @property (nonatomic, weak) id<GYScrollCardViewDelegate> delegate;
-
+-(void)scrollToLeftWithSection:(NSInteger)section;
 @end

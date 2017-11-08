@@ -8,14 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-//@protocol GYCardListCollectionViewCellDelegate <NSObject>
-//@optional
-//-(void)cardList_scrollToEnd;
-//
-//@end
 
 @interface GYCardListCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UICollectionView *cardCollectionView;
 @property (nonatomic, strong) NSMutableArray *array;
-//@property (nonatomic, weak) id<GYCardListCollectionViewCellDelegate> delegate;
 @end

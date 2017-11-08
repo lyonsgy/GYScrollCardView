@@ -8,8 +8,10 @@
 
 #import "GYScrollCardView.h"
 #import "GYCardListCollectionViewCell.h"
+#import "GYLoadingCollectionReusableView.h"
 
 #define CellReuseIdentifier @"GYCardListCollectionViewCell"
+#define CellLoadingReuseIdentifier @"GYLoadingCollectionReusableView"
 
 static NSInteger const kHspace = 0; //水平间距
 
@@ -18,6 +20,7 @@ static NSInteger const kHspace = 0; //水平间距
     CGFloat _lastContentOffset;
     NSInteger _section;
     NSInteger _index;
+    BOOL _isLeft;
 }
 @end
 
@@ -28,7 +31,6 @@ static NSInteger const kHspace = 0; //水平间距
     self = [super initWithFrame:frame];
     if (self) {
         [self setCustomView];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(scrollToLeft) name:Notif_ScrollToLeft object:nil];
     }
     return self;
 }
@@ -64,6 +66,8 @@ static NSInteger const kHspace = 0; //水平间距
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
     //设置collectionView滚动方向
     [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    //设置footerReferenceSize的尺寸大小
+    layout.footerReferenceSize = CGSizeMake(self.zj_width, self.zj_height);
     
     self.firstCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     [self addSubview:_firstCollectionView];
@@ -73,26 +77,40 @@ static NSInteger const kHspace = 0; //水平间距
     _firstCollectionView.showsHorizontalScrollIndicator = NO;
     _firstCollectionView.backgroundColor = [UIColor blueColor];
     [_firstCollectionView registerNib:[UINib nibWithNibName:@"GYCardListCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:CellReuseIdentifier];
+    [_firstCollectionView registerNib:[UINib nibWithNibName:@"GYLoadingCollectionReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:CellLoadingReuseIdentifier];
     //4.设置代理
     _firstCollectionView.delegate = self;
     _firstCollectionView.dataSource = self;
 }
 #pragma mark - collectionViewDelegate&collectionViewDataSource
+// 设置headerView和footerView的
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionReusableView *reusableView = nil;
+    if (kind == UICollectionElementKindSectionFooter)
+    {
+        //        self.firstCollectionView.scrollEnabled = false;
+        GYLoadingCollectionReusableView *footerview = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:CellLoadingReuseIdentifier forIndexPath:indexPath];
+        footerview.backgroundColor = [UIColor redColor];
+        footerview.label.text = [NSString stringWithFormat:@"第 %ld 组",(long)indexPath.section+1];
+        reusableView = footerview;
+    }
+    return reusableView;
+}
 //返回section个数
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 1;
+    return _array.count;
 }
 //每个section的item个数
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return _array.count;
+    return 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     GYCardListCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:CellReuseIdentifier forIndexPath:indexPath];
-    cell.cardCollectionView.delegate = self;
     cell.cardCollectionView.backgroundColor = (indexPath.row%2==0)?[UIColor yellowColor]:[UIColor lightGrayColor];
     cell.array = _array[indexPath.row][@"cardList"];
     return cell;
@@ -119,51 +137,43 @@ static NSInteger const kHspace = 0; //水平间距
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    UICollectionView *collectionView = (UICollectionView*)scrollView;
-    if (collectionView == _firstCollectionView) {
-        _section = scrollView.contentOffset.x/self.frame.size.width;
-    }
+    
 }
 
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    if (_delegate) {
-        NSInteger index = scrollView.contentOffset.x/self.frame.size.width;
-        [_delegate scrollCard_scrollViewDidScroll:scrollView index:index isLeft:(scrollView.contentOffset.x>_lastContentOffset)];
-    }
+    //松手
+    
+}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    //滚动结束
     UICollectionView *collectionView = (UICollectionView*)scrollView;
     if (collectionView == _firstCollectionView) {
-        if (collectionView.contentOffset.x<_lastContentOffset)
+        NSInteger pageIndex = _firstCollectionView.contentOffset.x/_firstCollectionView.frame.size.width;
+        NSLog(@"___%ld",(long)pageIndex);
+        if (_firstCollectionView.contentOffset.x<_lastContentOffset)
         {
-            //换组：向右
-            //往前翻到上一页的最后一页loading
-//            NSLog(@"向右换组");
+            //向右
+            _isLeft = NO;
+            if ((pageIndex+1)%2==0) {
+                [self scrollToLeftWithSection:(pageIndex+1)/2];
+            }
         }
-        else if (collectionView.contentOffset.x>_lastContentOffset)
+        else if (_firstCollectionView.contentOffset.x>_lastContentOffset)
         {
-            //换组：向左
-//            NSLog(@"向左换组");
-
-        }
-    }else{
-        _index = scrollView.contentOffset.x/self.frame.size.width;
-        if (collectionView.contentOffset.x<_lastContentOffset)
-        {
-            //————向右
-//            NSLog(@"向右滚动");
-            
-        }else if (collectionView.contentOffset.x>_lastContentOffset){
-            //————向左
-//            NSLog(@"向左滚动");
-            NSArray *cardArray = _array[_section][@"cardList"];
-            if (_index==cardArray.count) {
-                //换组
-//                NSLog(@"换组");
-                //向左滑动到最后一页loading页,requestData
+            //向左
+            _isLeft = YES;
+            if ((pageIndex+1)%2==0) {
+                if (pageIndex>=(_array.count-1)*2) {
+                    //最后一页，加载更多
+                    [_array addObject:@{@"cardList":@[@"第1张",@"第2张",@"第3张",@"第4张",@"第5张"]}];
+                    [_firstCollectionView reloadData];
+                }
+                [self scrollToLeftWithSection:pageIndex/2];
             }
         }
     }
-    NSLog(@"___第%ld组，第%ld个",(long)_section+1,(long)index+1);
 }
 #pragma mark - GYCardListCollectionViewCellDelegate
 -(void)cardList_scrollToEnd
@@ -177,10 +187,13 @@ static NSInteger const kHspace = 0; //水平间距
     [_firstCollectionView reloadData];
 }
 
--(void)scrollToLeftWithIndex:(NSInteger)index{
-    NSLog(@"向前翻组");
-    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index-1 inSection:0];
-    [self.firstCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
-}
+-(void)scrollToLeftWithSection:(NSInteger)section{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //翻页
+        NSInteger nextSection = _isLeft?(section+1):(section-1);
+        NSIndexPath *nextIndexPath = [NSIndexPath indexPathForItem:0 inSection:nextSection];
+        [self.firstCollectionView scrollToItemAtIndexPath:nextIndexPath atScrollPosition:_isLeft?UICollectionViewScrollPositionLeft:UICollectionViewScrollPositionRight animated:YES];
+        
+    });}
 
 @end

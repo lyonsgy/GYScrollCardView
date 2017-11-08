@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GYCardViewFlowLayout : UICollectionViewFlowLayout
+@interface GYCardViewFlowLayout : UICollectionViewFlowLayout<UICollectionViewDelegate>
 
 @end
