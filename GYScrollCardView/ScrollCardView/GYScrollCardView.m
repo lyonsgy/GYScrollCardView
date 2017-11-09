@@ -69,7 +69,7 @@ static NSInteger const kHspace = 0; //水平间距
     //设置footerReferenceSize的尺寸大小
     layout.footerReferenceSize = CGSizeMake(self.zj_width, self.zj_height);
     
-    self.firstCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    self.firstCollectionView = [[GYCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     [self addSubview:_firstCollectionView];
     //2.初始化collectionView
     _firstCollectionView.pagingEnabled = YES;
@@ -107,11 +107,10 @@ static NSInteger const kHspace = 0; //水平间距
 {
     return 1;
 }
-
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     GYCardListCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:CellReuseIdentifier forIndexPath:indexPath];
-    cell.cardCollectionView.backgroundColor = (indexPath.row%2==0)?[UIColor yellowColor]:[UIColor lightGrayColor];
+    cell.cardCollectionView.backgroundColor = (indexPath.section%2==0)?[UIColor brownColor]:[UIColor lightGrayColor];
     cell.array = _array[indexPath.row][@"cardList"];
     return cell;
 }
@@ -130,16 +129,13 @@ static NSInteger const kHspace = 0; //水平间距
 {
     return kHspace;
 }
-
 #pragma mark - UIScrollViewDelegate
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     _lastContentOffset = scrollView.contentOffset.x;
 }
-
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
 }
-
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     //松手
@@ -151,7 +147,7 @@ static NSInteger const kHspace = 0; //水平间距
     UICollectionView *collectionView = (UICollectionView*)scrollView;
     if (collectionView == _firstCollectionView) {
         NSInteger pageIndex = _firstCollectionView.contentOffset.x/_firstCollectionView.frame.size.width;
-        NSLog(@"___%ld",(long)pageIndex);
+//        NSLog(@"___%ld",(long)pageIndex);
         if (_firstCollectionView.contentOffset.x<_lastContentOffset)
         {
             //向右

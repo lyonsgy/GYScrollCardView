@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "GYCollectionView.h"
 
 @interface GYCardListCollectionViewCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UICollectionView *cardCollectionView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet GYCollectionView *cardCollectionView;
 @property (nonatomic, strong) NSMutableArray *array;
+
 @end

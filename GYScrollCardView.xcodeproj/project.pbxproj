@@ -23,6 +23,7 @@
 		2B46DDAB1FB18C3C00B44AC4 /* GYLoadingCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46DDA91FB18C3C00B44AC4 /* GYLoadingCollectionReusableView.m */; };
 		2B46DDAC1FB18C3C00B44AC4 /* GYLoadingCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B46DDAA1FB18C3C00B44AC4 /* GYLoadingCollectionReusableView.xib */; };
 		2B46DDAF1FB197BF00B44AC4 /* GYCardViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46DDAE1FB197BF00B44AC4 /* GYCardViewFlowLayout.m */; };
+		2BB002C31FB2FACF00ED2C52 /* GYCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BB002C21FB2FACF00ED2C52 /* GYCollectionView.m */; };
 		2BBC2E221FB14EED001280E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC2E211FB14EED001280E6 /* AppDelegate.m */; };
 		2BBC2E251FB14EED001280E6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC2E241FB14EED001280E6 /* ViewController.m */; };
 		2BBC2E281FB14EED001280E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BBC2E261FB14EED001280E6 /* Main.storyboard */; };
@@ -84,6 +85,8 @@
 		2B46DDAA1FB18C3C00B44AC4 /* GYLoadingCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYLoadingCollectionReusableView.xib; sourceTree = "<group>"; };
 		2B46DDAD1FB197BF00B44AC4 /* GYCardViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYCardViewFlowLayout.h; sourceTree = "<group>"; };
 		2B46DDAE1FB197BF00B44AC4 /* GYCardViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYCardViewFlowLayout.m; sourceTree = "<group>"; };
+		2BB002C11FB2FACF00ED2C52 /* GYCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYCollectionView.h; sourceTree = "<group>"; };
+		2BB002C21FB2FACF00ED2C52 /* GYCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYCollectionView.m; sourceTree = "<group>"; };
 		2BBC2E1D1FB14EED001280E6 /* GYScrollCardView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GYScrollCardView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BBC2E201FB14EED001280E6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2BBC2E211FB14EED001280E6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -162,6 +165,8 @@
 				2B46DDAA1FB18C3C00B44AC4 /* GYLoadingCollectionReusableView.xib */,
 				2B46DDAD1FB197BF00B44AC4 /* GYCardViewFlowLayout.h */,
 				2B46DDAE1FB197BF00B44AC4 /* GYCardViewFlowLayout.m */,
+				2BB002C11FB2FACF00ED2C52 /* GYCollectionView.h */,
+				2BB002C21FB2FACF00ED2C52 /* GYCollectionView.m */,
 			);
 			path = ScrollCardView;
 			sourceTree = "<group>";
@@ -508,6 +513,7 @@
 				2B46DDAF1FB197BF00B44AC4 /* GYCardViewFlowLayout.m in Sources */,
 				2B46DD9D1FB180E800B44AC4 /* ZJTitleView.m in Sources */,
 				2BBC2E221FB14EED001280E6 /* AppDelegate.m in Sources */,
+				2BB002C31FB2FACF00ED2C52 /* GYCollectionView.m in Sources */,
 				2B46DD9B1FB180E800B44AC4 /* ZJScrollSegmentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

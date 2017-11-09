@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GYScrollCardHeader.h"
+#import "GYCollectionView.h"
 
 @protocol GYScrollCardViewDelegate <NSObject>
 @optional
@@ -16,7 +17,7 @@
 @end
 
 @interface GYScrollCardView : UIView
-@property (nonatomic ,strong) UICollectionView *firstCollectionView;
+@property (nonatomic ,strong) GYCollectionView *firstCollectionView;
 @property (nonatomic ,strong) NSMutableArray *array;
 @property (nonatomic, weak) id<GYScrollCardViewDelegate> delegate;
 -(void)scrollToLeftWithSection:(NSInteger)section;
