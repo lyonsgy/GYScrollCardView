@@ -21,8 +21,6 @@
     _cardArray = [NSMutableArray arrayWithArray:@[@"第1张",@"第2张",@"第3张",@"第4张",@"第5张"]];
     _dataArray = [NSMutableArray new];
     [_dataArray addObject:@{@"cardList":_cardArray}];
-    [_dataArray addObject:@{@"cardList":_cardArray}];
-    [_dataArray addObject:@{@"cardList":_cardArray}];
     _scrollCardView.array = [NSMutableArray arrayWithArray:_dataArray];
     _scrollCardView.delegate = self;
 }
@@ -33,10 +31,15 @@
 }
 
 
--(void)scrollToNextCard:(UICollectionView*)collection
+-(void)scrollCard_scrollToEndInSection:(NSInteger)section
 {
-    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:0 inSection:0];
-    [collection scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
+//    [_dataArray addObject:@{@"cardList":_cardArray}];
+    [_scrollCardView.array addObject:@{@"cardList":_cardArray}];
+    [_scrollCardView reloadData];
     
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //翻页
+        [self.scrollCardView scrollToLeftWithSection:section];
+    });
 }
 @end

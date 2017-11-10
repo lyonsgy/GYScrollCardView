@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet GYCollectionView *cardCollectionView;
 @property (nonatomic, strong) NSMutableArray *array;
+@property (nonatomic) BOOL isLeft;
 
 @end

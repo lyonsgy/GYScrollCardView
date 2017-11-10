@@ -12,7 +12,7 @@
 
 @protocol GYScrollCardViewDelegate <NSObject>
 @optional
--(void)scrollCard_scrollToSection:(NSInteger)section;
+-(void)scrollCard_scrollToEndInSection:(NSInteger)section;
 
 @end
 
@@ -20,5 +20,8 @@
 @property (nonatomic ,strong) GYCollectionView *firstCollectionView;
 @property (nonatomic ,strong) NSMutableArray *array;
 @property (nonatomic, weak) id<GYScrollCardViewDelegate> delegate;
--(void)scrollToLeftWithSection:(NSInteger)section;
+
+- (void)scrollToLeftWithSection:(NSInteger)section;
+- (void)reloadData;
+
 @end

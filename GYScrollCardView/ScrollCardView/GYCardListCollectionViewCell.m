@@ -72,7 +72,7 @@
 //设置每个item的尺寸
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(self.zj_width, self.zj_height);
+    return CGSizeMake(self.frame.size.width, self.frame.size.height);
 }
 //设置每个item水平间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
@@ -118,20 +118,22 @@
     self.titleLabel.text = [NSString stringWithFormat:@"第%ld个标题",(long)pageIndex+1];
     
     [UIView animateWithDuration:.3 animations:^{
-        self.titleLabel.zj_x = 20;
+        self.titleLabel.tz_left = 20;
         self.titleLabel.alpha = 1;
     } completion:^(BOOL finished) {
+        
     }];
 }
-- (void)alphaWithUIProgress:(CGFloat)UIProgress isLeft:(BOOL)isLeft tempIndex:(NSInteger)tempIndex endSectionScrollX:(CGFloat)endSectionScrollX{
+- (void)alphaWithUIProgress:(CGFloat)UIProgress isLeft:(BOOL)isLeft tempIndex:(NSInteger)tempIndex endSectionScrollX:(CGFloat)endSectionScrollX
+{
     if (isLeft) {
         //向左
         _titleLabel.alpha = 1-UIProgress;
-        _titleLabel.zj_x = 20+10*UIProgress;
+        _titleLabel.tz_left = 20+5*UIProgress;
     }else{
         //向右
         _titleLabel.alpha = UIProgress;
-        _titleLabel.zj_x = 20+10*(1-UIProgress);
+        _titleLabel.tz_left = 20+5*(1-UIProgress);
     }
 }
 

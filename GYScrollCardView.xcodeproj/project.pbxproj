@@ -8,14 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2B368E8E1FB15E8200BF23C7 /* GYScrollCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B368E8D1FB15E8200BF23C7 /* GYScrollCardView.m */; };
-		2B46DD961FB180E800B44AC4 /* UIView+ZJFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46DD861FB180E800B44AC4 /* UIView+ZJFrame.m */; };
-		2B46DD971FB180E800B44AC4 /* UIViewController+ZJScrollPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46DD881FB180E800B44AC4 /* UIViewController+ZJScrollPageController.m */; };
-		2B46DD981FB180E800B44AC4 /* ZJCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46DD8A1FB180E800B44AC4 /* ZJCollectionView.m */; };
-		2B46DD991FB180E800B44AC4 /* ZJContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46DD8C1FB180E800B44AC4 /* ZJContentView.m */; };
-		2B46DD9A1FB180E800B44AC4 /* ZJScrollPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46DD8E1FB180E800B44AC4 /* ZJScrollPageView.m */; };
-		2B46DD9B1FB180E800B44AC4 /* ZJScrollSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46DD911FB180E800B44AC4 /* ZJScrollSegmentView.m */; };
-		2B46DD9C1FB180E800B44AC4 /* ZJSegmentStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46DD931FB180E800B44AC4 /* ZJSegmentStyle.m */; };
-		2B46DD9D1FB180E800B44AC4 /* ZJTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46DD951FB180E800B44AC4 /* ZJTitleView.m */; };
 		2B46DDA11FB1867200B44AC4 /* GYCardListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46DD9F1FB1867200B44AC4 /* GYCardListCollectionViewCell.m */; };
 		2B46DDA21FB1867200B44AC4 /* GYCardListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B46DDA01FB1867200B44AC4 /* GYCardListCollectionViewCell.xib */; };
 		2B46DDA61FB1891800B44AC4 /* GYCardCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46DDA41FB1891800B44AC4 /* GYCardCollectionViewCell.m */; };
@@ -24,6 +16,7 @@
 		2B46DDAC1FB18C3C00B44AC4 /* GYLoadingCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B46DDAA1FB18C3C00B44AC4 /* GYLoadingCollectionReusableView.xib */; };
 		2B46DDAF1FB197BF00B44AC4 /* GYCardViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B46DDAE1FB197BF00B44AC4 /* GYCardViewFlowLayout.m */; };
 		2BB002C31FB2FACF00ED2C52 /* GYCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BB002C21FB2FACF00ED2C52 /* GYCollectionView.m */; };
+		2BB002C61FB3F30C00ED2C52 /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BB002C51FB3F30C00ED2C52 /* UIView+Layout.m */; };
 		2BBC2E221FB14EED001280E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC2E211FB14EED001280E6 /* AppDelegate.m */; };
 		2BBC2E251FB14EED001280E6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BBC2E241FB14EED001280E6 /* ViewController.m */; };
 		2BBC2E281FB14EED001280E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BBC2E261FB14EED001280E6 /* Main.storyboard */; };
@@ -57,23 +50,6 @@
 		2B368E8C1FB15E8200BF23C7 /* GYScrollCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYScrollCardView.h; sourceTree = "<group>"; };
 		2B368E8D1FB15E8200BF23C7 /* GYScrollCardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYScrollCardView.m; sourceTree = "<group>"; };
 		2B368E901FB15EAD00BF23C7 /* GYScrollCardHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYScrollCardHeader.h; sourceTree = "<group>"; };
-		2B46DD851FB180E800B44AC4 /* UIView+ZJFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZJFrame.h"; sourceTree = "<group>"; };
-		2B46DD861FB180E800B44AC4 /* UIView+ZJFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZJFrame.m"; sourceTree = "<group>"; };
-		2B46DD871FB180E800B44AC4 /* UIViewController+ZJScrollPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ZJScrollPageController.h"; sourceTree = "<group>"; };
-		2B46DD881FB180E800B44AC4 /* UIViewController+ZJScrollPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ZJScrollPageController.m"; sourceTree = "<group>"; };
-		2B46DD891FB180E800B44AC4 /* ZJCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJCollectionView.h; sourceTree = "<group>"; };
-		2B46DD8A1FB180E800B44AC4 /* ZJCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJCollectionView.m; sourceTree = "<group>"; };
-		2B46DD8B1FB180E800B44AC4 /* ZJContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJContentView.h; sourceTree = "<group>"; };
-		2B46DD8C1FB180E800B44AC4 /* ZJContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJContentView.m; sourceTree = "<group>"; };
-		2B46DD8D1FB180E800B44AC4 /* ZJScrollPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJScrollPageView.h; sourceTree = "<group>"; };
-		2B46DD8E1FB180E800B44AC4 /* ZJScrollPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJScrollPageView.m; sourceTree = "<group>"; };
-		2B46DD8F1FB180E800B44AC4 /* ZJScrollPageViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJScrollPageViewDelegate.h; sourceTree = "<group>"; };
-		2B46DD901FB180E800B44AC4 /* ZJScrollSegmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJScrollSegmentView.h; sourceTree = "<group>"; };
-		2B46DD911FB180E800B44AC4 /* ZJScrollSegmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJScrollSegmentView.m; sourceTree = "<group>"; };
-		2B46DD921FB180E800B44AC4 /* ZJSegmentStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJSegmentStyle.h; sourceTree = "<group>"; };
-		2B46DD931FB180E800B44AC4 /* ZJSegmentStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJSegmentStyle.m; sourceTree = "<group>"; };
-		2B46DD941FB180E800B44AC4 /* ZJTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJTitleView.h; sourceTree = "<group>"; };
-		2B46DD951FB180E800B44AC4 /* ZJTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJTitleView.m; sourceTree = "<group>"; };
 		2B46DD9E1FB1867200B44AC4 /* GYCardListCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYCardListCollectionViewCell.h; sourceTree = "<group>"; };
 		2B46DD9F1FB1867200B44AC4 /* GYCardListCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYCardListCollectionViewCell.m; sourceTree = "<group>"; };
 		2B46DDA01FB1867200B44AC4 /* GYCardListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GYCardListCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -87,6 +63,8 @@
 		2B46DDAE1FB197BF00B44AC4 /* GYCardViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYCardViewFlowLayout.m; sourceTree = "<group>"; };
 		2BB002C11FB2FACF00ED2C52 /* GYCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GYCollectionView.h; sourceTree = "<group>"; };
 		2BB002C21FB2FACF00ED2C52 /* GYCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYCollectionView.m; sourceTree = "<group>"; };
+		2BB002C41FB3F30C00ED2C52 /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
+		2BB002C51FB3F30C00ED2C52 /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
 		2BBC2E1D1FB14EED001280E6 /* GYScrollCardView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GYScrollCardView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BBC2E201FB14EED001280E6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2BBC2E211FB14EED001280E6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -150,7 +128,8 @@
 		2B368E8B1FB15ABA00BF23C7 /* ScrollCardView */ = {
 			isa = PBXGroup;
 			children = (
-				2B46DD841FB180E800B44AC4 /* ZJScrollPageView */,
+				2BB002C41FB3F30C00ED2C52 /* UIView+Layout.h */,
+				2BB002C51FB3F30C00ED2C52 /* UIView+Layout.m */,
 				2B368E901FB15EAD00BF23C7 /* GYScrollCardHeader.h */,
 				2B368E8C1FB15E8200BF23C7 /* GYScrollCardView.h */,
 				2B368E8D1FB15E8200BF23C7 /* GYScrollCardView.m */,
@@ -169,30 +148,6 @@
 				2BB002C21FB2FACF00ED2C52 /* GYCollectionView.m */,
 			);
 			path = ScrollCardView;
-			sourceTree = "<group>";
-		};
-		2B46DD841FB180E800B44AC4 /* ZJScrollPageView */ = {
-			isa = PBXGroup;
-			children = (
-				2B46DD851FB180E800B44AC4 /* UIView+ZJFrame.h */,
-				2B46DD861FB180E800B44AC4 /* UIView+ZJFrame.m */,
-				2B46DD871FB180E800B44AC4 /* UIViewController+ZJScrollPageController.h */,
-				2B46DD881FB180E800B44AC4 /* UIViewController+ZJScrollPageController.m */,
-				2B46DD891FB180E800B44AC4 /* ZJCollectionView.h */,
-				2B46DD8A1FB180E800B44AC4 /* ZJCollectionView.m */,
-				2B46DD8B1FB180E800B44AC4 /* ZJContentView.h */,
-				2B46DD8C1FB180E800B44AC4 /* ZJContentView.m */,
-				2B46DD8D1FB180E800B44AC4 /* ZJScrollPageView.h */,
-				2B46DD8E1FB180E800B44AC4 /* ZJScrollPageView.m */,
-				2B46DD8F1FB180E800B44AC4 /* ZJScrollPageViewDelegate.h */,
-				2B46DD901FB180E800B44AC4 /* ZJScrollSegmentView.h */,
-				2B46DD911FB180E800B44AC4 /* ZJScrollSegmentView.m */,
-				2B46DD921FB180E800B44AC4 /* ZJSegmentStyle.h */,
-				2B46DD931FB180E800B44AC4 /* ZJSegmentStyle.m */,
-				2B46DD941FB180E800B44AC4 /* ZJTitleView.h */,
-				2B46DD951FB180E800B44AC4 /* ZJTitleView.m */,
-			);
-			path = ZJScrollPageView;
 			sourceTree = "<group>";
 		};
 		2BBC2E141FB14EED001280E6 = {
@@ -499,22 +454,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B46DDA61FB1891800B44AC4 /* GYCardCollectionViewCell.m in Sources */,
-				2B46DD961FB180E800B44AC4 /* UIView+ZJFrame.m in Sources */,
-				2B46DD981FB180E800B44AC4 /* ZJCollectionView.m in Sources */,
-				2B46DD9A1FB180E800B44AC4 /* ZJScrollPageView.m in Sources */,
 				2BBC2E251FB14EED001280E6 /* ViewController.m in Sources */,
-				2B46DD9C1FB180E800B44AC4 /* ZJSegmentStyle.m in Sources */,
 				2B368E8E1FB15E8200BF23C7 /* GYScrollCardView.m in Sources */,
 				2B46DDA11FB1867200B44AC4 /* GYCardListCollectionViewCell.m in Sources */,
-				2B46DD991FB180E800B44AC4 /* ZJContentView.m in Sources */,
 				2B46DDAB1FB18C3C00B44AC4 /* GYLoadingCollectionReusableView.m in Sources */,
 				2BBC2E301FB14EED001280E6 /* main.m in Sources */,
-				2B46DD971FB180E800B44AC4 /* UIViewController+ZJScrollPageController.m in Sources */,
 				2B46DDAF1FB197BF00B44AC4 /* GYCardViewFlowLayout.m in Sources */,
-				2B46DD9D1FB180E800B44AC4 /* ZJTitleView.m in Sources */,
 				2BBC2E221FB14EED001280E6 /* AppDelegate.m in Sources */,
+				2BB002C61FB3F30C00ED2C52 /* UIView+Layout.m in Sources */,
 				2BB002C31FB2FACF00ED2C52 /* GYCollectionView.m in Sources */,
-				2B46DD9B1FB180E800B44AC4 /* ZJScrollSegmentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

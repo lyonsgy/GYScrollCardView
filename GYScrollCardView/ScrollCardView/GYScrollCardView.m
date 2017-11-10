@@ -67,7 +67,7 @@ static NSInteger const kHspace = 0; //水平间距
     //设置collectionView滚动方向
     [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     //设置footerReferenceSize的尺寸大小
-    layout.footerReferenceSize = CGSizeMake(self.zj_width, self.zj_height);
+    layout.footerReferenceSize = CGSizeMake(self.frame.size.width, self.frame.size.height);
     
     self.firstCollectionView = [[GYCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     [self addSubview:_firstCollectionView];
@@ -111,13 +111,16 @@ static NSInteger const kHspace = 0; //水平间距
 {
     GYCardListCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:CellReuseIdentifier forIndexPath:indexPath];
     cell.cardCollectionView.backgroundColor = (indexPath.section%2==0)?[UIColor brownColor]:[UIColor lightGrayColor];
-    cell.array = _array[indexPath.row][@"cardList"];
+    NSMutableArray *array = _array[indexPath.row][@"cardList"];
+    cell.array = array;
+    NSIndexPath *nextIndexPath = [NSIndexPath indexPathForItem:_isLeft?0:(array.count-1) inSection:0];
+    [cell.cardCollectionView scrollToItemAtIndexPath:nextIndexPath atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
     return cell;
 }
 //设置每个item的尺寸
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(self.zj_width, self.zj_height);
+    return CGSizeMake(self.frame.size.width, self.frame.size.height);
 }
 //设置每个item水平间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
@@ -134,7 +137,19 @@ static NSInteger const kHspace = 0; //水平间距
     _lastContentOffset = scrollView.contentOffset.x;
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    
+    UICollectionView *collectionView = (UICollectionView*)scrollView;
+    if (collectionView == _firstCollectionView) {
+        if (_firstCollectionView.contentOffset.x<_lastContentOffset)
+        {
+            //向右
+            _isLeft = NO;
+        }
+        else if (_firstCollectionView.contentOffset.x>_lastContentOffset)
+        {
+            //向左
+            _isLeft = YES;
+        }
+    }
 }
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
@@ -147,34 +162,32 @@ static NSInteger const kHspace = 0; //水平间距
     UICollectionView *collectionView = (UICollectionView*)scrollView;
     if (collectionView == _firstCollectionView) {
         NSInteger pageIndex = _firstCollectionView.contentOffset.x/_firstCollectionView.frame.size.width;
-//        NSLog(@"___%ld",(long)pageIndex);
         if (_firstCollectionView.contentOffset.x<_lastContentOffset)
         {
             //向右
-            _isLeft = NO;
             if ((pageIndex+1)%2==0) {
-                [self scrollToLeftWithSection:(pageIndex+1)/2];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    //翻页
+                    [self scrollToLeftWithSection:(pageIndex+1)/2];
+                });
             }
         }
         else if (_firstCollectionView.contentOffset.x>_lastContentOffset)
         {
             //向左
-            _isLeft = YES;
             if ((pageIndex+1)%2==0) {
                 if (pageIndex>=(_array.count-1)*2) {
                     //最后一页，加载更多
-                    [_array addObject:@{@"cardList":@[@"第1张",@"第2张",@"第3张",@"第4张",@"第5张"]}];
-                    [_firstCollectionView reloadData];
+                    if ([self.delegate respondsToSelector:@selector(scrollCard_scrollToEndInSection:)])
+                    {
+                        [self.delegate scrollCard_scrollToEndInSection:pageIndex/2];
+                    }
+                }else{
+                    [self scrollToLeftWithSection:pageIndex/2];
                 }
-                [self scrollToLeftWithSection:pageIndex/2];
             }
         }
     }
-}
-#pragma mark - GYCardListCollectionViewCellDelegate
--(void)cardList_scrollToEnd
-{
-    
 }
 #pragma mark - setter
 -(void)setArray:(NSMutableArray *)array
@@ -184,12 +197,13 @@ static NSInteger const kHspace = 0; //水平间距
 }
 
 -(void)scrollToLeftWithSection:(NSInteger)section{
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        //翻页
-        NSInteger nextSection = _isLeft?(section+1):(section-1);
-        NSIndexPath *nextIndexPath = [NSIndexPath indexPathForItem:0 inSection:nextSection];
-        [self.firstCollectionView scrollToItemAtIndexPath:nextIndexPath atScrollPosition:_isLeft?UICollectionViewScrollPositionLeft:UICollectionViewScrollPositionRight animated:YES];
-        
-    });}
+    NSInteger nextSection = _isLeft?(section+1):(section-1);
+    NSIndexPath *nextIndexPath = [NSIndexPath indexPathForItem:0 inSection:nextSection];
+    [self.firstCollectionView scrollToItemAtIndexPath:nextIndexPath atScrollPosition:_isLeft?UICollectionViewScrollPositionLeft:UICollectionViewScrollPositionRight animated:YES];
+}
 
+- (void)reloadData
+{
+    [_firstCollectionView reloadData];
+}
 @end

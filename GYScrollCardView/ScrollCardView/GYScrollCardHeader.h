@@ -11,7 +11,7 @@
 
 #import "Masonry.h"
 #import "YYImage.h"
-#import "ZJScrollPageView.h"
+#import "UIView+Layout.h"
 
 #define Notif_ScrollToLeft @"Notif_ScrollToLeft"
 #define Notif_ScrollToRight @"Notif_ScrollToRight"
