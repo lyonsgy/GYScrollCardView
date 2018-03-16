@@ -1,0 +1,3 @@
+# GYScrollCardView
+ScrollCardView
+横向切换，并且每一组图片结尾有一个loading页
